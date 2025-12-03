@@ -16,7 +16,10 @@ using namespace std;
 
 #define PASS() return 0
 #define EXPECT(a, b) do { \
-	if (a != b) exit(1); \
+	if (a != b) { \
+        cout << __FILE__<< ":" << __LINE__ << ": " << a << " != " << b << endl;\
+        exit(1); \
+    } \
 	} while(0)
 
 int mod(int k, int n) {
