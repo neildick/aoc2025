@@ -108,6 +108,7 @@ public:
   }
   char get(int x, int y) {return cmap.at(make_pair(x,y));}
   char get(pair<int,int> coord) {return cmap.at(coord);}
+  void set(pair<int, int> coord, char x) { cmap[coord]= x; }
   void pretty_print(void)
   {
     for (int y = 0; y < height; y++)
@@ -132,7 +133,7 @@ public:
 
   advent(std::string path, const char delim = '\n') : f(path)
   {
-    if (!f)
+    if (!f.is_open())
     {
       cout << "File not found : " << path << endl;
       exit(-1);

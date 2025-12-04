@@ -18,6 +18,8 @@ add_executable(day2t test/day2.cpp advent.hpp day2.hpp)
 add_executable(day2 day2.cpp advent.hpp day2.hpp)
 add_executable(day3t test/day3.cpp advent.hpp day3.hpp)
 add_executable(day3 day3.cpp advent.hpp day3.hpp)
+add_executable(day4t test/day4.cpp advent.hpp day4.hpp)
+add_executable(day4 day4.cpp advent.hpp day4.hpp)
 
 
 target_include_directories(day1t PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
@@ -26,8 +28,8 @@ target_include_directories(day2t PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE
 target_include_directories(day2 PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_include_directories(day3t PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 target_include_directories(day3 PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
-
-
+target_include_directories(day4 PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
+target_include_directories(day4t PUBLIC  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 # enable testing functionality
 enable_testing()
 
@@ -35,5 +37,5 @@ enable_testing()
 add_test(NAME day1t COMMAND $<TARGET_FILE:day1t>)
 add_test(NAME day2t COMMAND $<TARGET_FILE:day2t>)
 add_test(NAME day3t COMMAND $<TARGET_FILE:day3t>)
-
+add_test(NAME day4t COMMAND $<TARGET_FILE:day4t>)
 
