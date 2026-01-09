@@ -7,12 +7,9 @@ int p1(const char* path) {
 		for (int x = 0; x < adv.cmap.width; x++) {
 			if (adv.cmap.get(make_pair(x, y)) == '.') continue;
 			auto neighbours = adv.cmap.neighbours(make_pair(x, y));
-			int point_count = 0;
-			for (auto const& p : neighbours) {
-				if (adv.cmap.get(p) == '@') {
-					point_count++;
-				}
-			}
+			auto point_count = count_if(neighbours.begin(), 
+										neighbours.end(), 
+										[&adv](pair<int,int> &p){return adv.cmap.get(p) == '@';});
 			if (point_count < 4) count++;
 		}
 	}
@@ -28,12 +25,9 @@ int p2(const char* path) {
 			for (int x = 0; x < adv.cmap.width; x++) {
 				if (adv.cmap.get(make_pair(x, y)) == '.') continue;
 				auto neighbours = adv.cmap.neighbours(make_pair(x, y));
-				int point_count = 0;
-				for (auto const& p : neighbours) {
-					if (adv.cmap.get(p) == '@') {
-						point_count++;
-					}
-				}
+				auto point_count = count_if(neighbours.begin(), 
+										    neighbours.end(), 
+										    [&adv](pair<int,int> &p){return adv.cmap.get(p) == '@';});
 				if (point_count < 4) {
 					total_removed++;
 					to_remove.push_back(make_pair(x, y));
